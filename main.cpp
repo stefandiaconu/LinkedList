@@ -1,5 +1,4 @@
 #include <iostream>
-#include <string>
 #include <vector>
 
 template <typename T>
@@ -50,8 +49,7 @@ void LinkedList<T>::InsertBeginning(T item) {
 
 template<typename T>
 void LinkedList<T>::InsertEnd(T item) {
-    Link<T>* temp;
-    temp = Head;
+    Link<T>* temp = Head;
     while (temp->Next != nullptr) {
         temp = temp->Next;
     }
@@ -153,8 +151,7 @@ void LinkedList<T>::Copy(LinkedList<T> list) {
 
 template<typename T>
 void LinkedList<T>::InsertInOrder(T item) {
-    Link<T>* temp;
-    temp = Head;
+    Link<T>* temp = Head;
     if (temp == nullptr) {
         std::cout << "List is empty!" << std::endl;
     }
@@ -170,8 +167,7 @@ void LinkedList<T>::InsertInOrder(T item) {
 template<typename T>
 void LinkedList<T>::Sort() {
     std::vector<T> tempVector;
-    Link<T>* temp;
-    temp = Head;
+    Link<T>* temp = Head;
     if (temp == nullptr) {
         std::cout << "List if empty!" << std::endl;
     }
@@ -202,7 +198,7 @@ int main() {
 //    std::cout << c.GetValue() << std::endl;
 //    std::cout << c.GetNext().GetValue() << std::endl;
 
-    LinkedList<int> list;
+    LinkedList<int> list{};
     std::cout << "Number of items: " << list.NumberOfItems() << std::endl;
     list.InsertBeginning(5);
     list.InsertBeginning(4);
@@ -221,7 +217,8 @@ int main() {
     list.RemoveItem(7);
     list.DisplayList();
 
-    LinkedList<int> list2;
+    LinkedList<int> list2{};
+    std::cout << "Number of items: " << list2.NumberOfItems() << std::endl;
     list2.InsertBeginning(1);
     list2.InsertBeginning(2);
     list2.InsertBeginning(3);
@@ -232,7 +229,9 @@ int main() {
     list.DisplayList();
 
     std::cout << "Before copy!" << std::endl;
-    LinkedList<int> list3;
+    LinkedList<int> list3{};
+    std::cout << "Number of items: " << list3.NumberOfItems() << std::endl;
+    list3.DisplayList();
     list3.InsertBeginning(0);
     list3.InsertEnd(10);
     list3.Copy(list);
